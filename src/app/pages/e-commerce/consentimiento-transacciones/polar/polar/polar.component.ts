@@ -46,7 +46,7 @@ export class PolarComponent implements OnInit {
       .getConsentimientosG4()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.data = res;
-        //Recorrido del res 1 comprobacion
+        // Recorrido del res 1 comprobacion
         var i = 0;
         var j = 0;
         var k = 0;
@@ -55,7 +55,7 @@ export class PolarComponent implements OnInit {
         var marca1 = 0;
         var inicio = 0;
         for (let numero of res) {
-          //Recorrido del principio
+          // Recorrido del principio
           if (inicio == 0) {
             this.barChartLabels.push(numero.Anio.toString());
             if (numero.estado == 0) {
@@ -72,9 +72,9 @@ export class PolarComponent implements OnInit {
               ano = numero.Anio;
             }
           } else {
-            //No es el inicio
+            // No es el inicio
             if (ano != numero.Anio) {
-              //Preguntamos si marca 0 y marca 1 son 1 pq deben serlo sino les ponemos un 0 y avanzamos 1
+              // Preguntamos si marca 0 y marca 1 son 1 pq deben serlo sino les ponemos un 0 y avanzamos 1
               if (marca0 == 0) {
                 this.barChartData[i].data[j] = 0;
                 j = j + 1;
@@ -99,11 +99,10 @@ export class PolarComponent implements OnInit {
               inicio = inicio + 1;
               ano = numero.Anio;
             }
-          } //else no es el inicio
-        } //for
-      }); //for
+          } // else no es el inicio
+        } // for
+      }); // for
     this.barChartData[0].label = "Estado 0";
     this.barChartData[1].label = "Estado 1";
   }
 }
-// PolarArea

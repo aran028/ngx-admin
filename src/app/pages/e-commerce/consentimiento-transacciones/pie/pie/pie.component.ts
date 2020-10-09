@@ -43,7 +43,7 @@ export class PieComponent implements OnInit {
     event: MouseEvent;
     active: {}[];
   }): void {
-    console.log(event, active);
+    // console.log(event, active);
   }
   ngOnInit() {
     this.service
@@ -51,11 +51,11 @@ export class PieComponent implements OnInit {
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.data = res;
         var i = 0;
-        for (let numero of res) {
+        for (const numero of res) {
           this.pieChartLabels.push("Estado " + numero.estado);
-          this.pieChartData[i] = numero.contador; //Leyenda de encima
+          this.pieChartData[i] = numero.contador; // Leyenda de encima
           i = i + 1;
-        } //for
+        } // for
       });
   }
 }

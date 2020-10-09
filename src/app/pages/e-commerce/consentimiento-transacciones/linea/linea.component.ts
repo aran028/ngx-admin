@@ -61,14 +61,14 @@ export class LineaComponent {
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.data = res;
         const i = 0;
-        var j = 0;
-        for (let numero of res) {
+        let j = 0;
+        for (const numero of res) {
           this.barChartLabels.push(numero.Anio.toString());
-          this.barChartData[i].data[j] = numero.contador; //Leyenda de encima
+          this.barChartData[i].data[j] = numero.contador; // Leyenda de encima
           j = j + 1;
         } // for
         this.barChartData[i].label = "Estado: 1";
-        this.periodo = "year"; //for //}
+        this.periodo = "year";
       });
   }
 
@@ -78,13 +78,13 @@ export class LineaComponent {
     this.value = value;
     // inicializo
     // Preguntamos que valor tiene periodo
-    if (this.periodo == "week") {
+    if (this.periodo === "week") {
       this.getGraficoWeek(this.periodo);
     }
-    if (this.periodo == "year") {
+    if (this.periodo === "year") {
       this.getGraficoYear(this.periodo);
     }
-    if (this.periodo == "month") {
+    if (this.periodo === "month") {
       this.getGraficoMes(this.periodo);
     }
   }
@@ -113,20 +113,19 @@ export class LineaComponent {
       .getConsentimientosG1()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.datayear = res;
-        var i = 0;
-        var j = 0;
-        var sumaContador = 0;
-        for (let numero of res) {
-          //preguntas por el año
-          if (numero.Anio == this.value) {
+        const i = 0;
+        const j = 0;
+        let sumaContador = 0;
+        for (const numero of res) {
+          // preguntas por el año
+          if (numero.Anio === this.value) {
             sumaContador = sumaContador + numero.contador;
           }
         } // for
         this.barChartLabels.length = 0;
         this.barChartLabels.push(this.value.toString());
-        this.barChartData[i].data[j] = sumaContador; //Leyenda de encima
-        this.barChartData[i].label = "Estado:" + 1; //}
-        // this.randomize();
+        this.barChartData[i].data[j] = sumaContador;
+        this.barChartData[i].label = "Estado:" + 1;
       });
   }
   getGraficoWeek(seleccionadoperiodo: string) {
@@ -137,7 +136,7 @@ export class LineaComponent {
         var i = 0;
         var j = 0;
         this.barChartLabels.length = 0;
-        //inicializar barChartData
+        // inicializar barChartData
         for (var j = 0; j <= 6; j++) {
           this.barChartData[0].data[j] = 0;
         }
@@ -149,8 +148,8 @@ export class LineaComponent {
         this.barChartLabels[5] = "Viernes";
         this.barChartLabels[6] = "Sabado";
 
-        for (let numero of res) {
-          if (numero.Anio == this.value) {
+        for (const numero of res) {
+          if (numero.Anio === this.value) {
             this.barChartData[i].data[numero.Dia - 1] = numero.contador;
           }
         } // for
@@ -184,10 +183,10 @@ export class LineaComponent {
         this.barChartLabels[11] = "Diciembre";
 
         for (let numero of res) {
-          if (numero.Anio == this.value) {
+          if (numero.Anio === this.value) {
             this.barChartData[i].data[numero.Mes - 1] = numero.contador;
           }
-        } //FOR
+        }
         this.barChartData[i].label = "Estado: 1";
         this.randomize();
       });
@@ -200,7 +199,7 @@ export class LineaComponent {
     event: MouseEvent;
     active: {}[];
   }): void {
-    console.log(event, active);
+    // console.log(event, active);
   }
   public chartHovered({
     event,
@@ -209,7 +208,7 @@ export class LineaComponent {
     event: MouseEvent;
     active: {}[];
   }): void {
-    console.log(event, active);
+    // console.log(event, active);
   }
   public randomize(): void {
     this.barChartType = this.barChartType === "bar" ? "line" : "bar";
