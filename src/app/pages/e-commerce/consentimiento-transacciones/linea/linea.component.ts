@@ -78,25 +78,20 @@ export class LineaComponent {
 
   //Metodo de llamada del select del año
   setAnio(value: number) {
-    console.log("the selected año  is " + value);
-    console.log("the period es " + this.periodo);
     //Actualizas el valor del año
     this.value = value;
     //inicializo
     //this.barChartLabels.length = 0;
     //Preguntamos que valor tiene periodo
     if (this.periodo == "week") {
-      console.log("He entrado en week");
       this.getGraficoWeek(this.periodo);
       //this.randomize();
     }
     if (this.periodo == "year") {
-      console.log("He entrado en YEAR");
       this.getGraficoYear(this.periodo);
       //this.randomize();
     }
     if (this.periodo == "month") {
-      console.log("He entrado en month");
       this.getGraficoMes(this.periodo);
     }
   }
@@ -104,7 +99,6 @@ export class LineaComponent {
   setPeriodo(seleccionadoperiodo: string) {
     if (this.periodo !== seleccionadoperiodo)
       this.periodo = seleccionadoperiodo;
-    console.log("Periodo vale " + this.periodo);
     switch (this.periodo) {
       case "year":
         this.getGraficoYear(seleccionadoperiodo);
@@ -122,13 +116,10 @@ export class LineaComponent {
   }
   //Seleccionando por year
   getGraficoYear(seleccionadoperiodo: string) {
-    console.log("He entrado en GRAFICO AÑO");
-    console.log("El AÑO vale" + this.value);
     this.service
       .getConsentimientosG1()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.datayear = res;
-        console.log(this.datayear);
         var i = 0;
         var j = 0;
         var sumaContador = 0;
@@ -146,13 +137,10 @@ export class LineaComponent {
       });
   }
   getGraficoWeek(seleccionadoperiodo: string) {
-    console.log("GRAFICO SEMANA");
-    console.log("El AÑO ES " + this.value);
     this.service
       .getConsentimientosTransaccionesGAW()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.datasemana = res;
-        console.log(this.datasemana);
         var i = 0;
         var j = 0;
         this.barChartLabels.length = 0;
@@ -179,8 +167,6 @@ export class LineaComponent {
       });
   }
   getGraficoMes(seleccionadoperiodo: string) {
-    console.log("He entrado en GRAFICO MES");
-    console.log("El AÑO EN MES vale: " + this.value);
     this.service
       .getConsentimientosTransaccionesGAM()
       .subscribe((res: consentimientovwtransacciones[]) => {
@@ -191,7 +177,6 @@ export class LineaComponent {
         for (var j = 0; j <= 11; j++) {
           this.barChartData[0].data[j] = 0;
         }
-        console.log(this.barChartData);
         this.barChartLabels[0] = "Enero";
         this.barChartLabels[1] = "Febrero";
         this.barChartLabels[2] = "Marzo";

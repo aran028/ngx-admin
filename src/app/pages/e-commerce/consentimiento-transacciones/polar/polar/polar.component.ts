@@ -46,7 +46,6 @@ export class PolarComponent implements OnInit {
       .getConsentimientosG4()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.data = res;
-        console.log(this.data);
         //Recorrido del res 1 comprobacion
         var i = 0;
         var j = 0;
@@ -58,22 +57,16 @@ export class PolarComponent implements OnInit {
         for (let numero of res) {
           //Recorrido del principio
           if (inicio == 0) {
-            console.log("ANO" + numero.Anio);
             this.barChartLabels.push(numero.Anio.toString());
             if (numero.estado == 0) {
-              console.log("ENTRO EN ESTADO 0");
               this.barChartData[i].data[j] = numero.contador;
-              console.log("Y he entrado en estado=0");
-              console.log("El array VALE" + this.barChartData[i].data[j]);
               j = j + 1;
               marca0 = 1;
               inicio = inicio + 1;
               ano = numero.Anio;
             } else {
-              console.log("ESTADO 1");
               this.barChartData[1].data[k] = numero.contador;
               k = k + 1;
-              console.log("estado=1 CONTADOR" + numero.contador);
               marca1 = 1;
               inicio = inicio + 1;
               ano = numero.Anio;
@@ -90,14 +83,10 @@ export class PolarComponent implements OnInit {
                 this.barChartData[1].data[k] = 0;
                 k = k + 1;
               }
-              console.log("HE ENTRADO EN CAMBIO DE AÑO y el array es ");
               this.barChartLabels.push(numero.Anio.toString());
-              console.log(this.barChartData);
             }
             if (numero.estado == 0) {
               this.barChartData[i].data[j] = numero.contador;
-              console.log("Y he entrado en FIRMA CASA=0");
-              console.log("El array VALE" + this.barChartData[i].data[j]);
               j = j + 1;
               marca0 = 1;
               inicio = inicio + 1;
@@ -106,7 +95,6 @@ export class PolarComponent implements OnInit {
               //estado=1
               this.barChartData[1].data[k] = numero.contador;
               k = k + 1;
-              console.log("FIRMA CASA=1" + numero.contador);
               marca1 = 1;
               inicio = inicio + 1;
               ano = numero.Anio;

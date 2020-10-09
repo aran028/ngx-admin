@@ -5,9 +5,6 @@ import { Label } from "ng2-charts";
 import { consentimientovwtransacciones } from "../../../../models/consentimientovwtransacciones";
 //importo el servicio para mostrar datos en gráfica
 import { ConsentimientovwtransaccionesService } from "../../../../services/consentimientovwtransacciones.service";
-import { sign } from "crypto";
-import { NumberWithCommasPipe } from "../../../../@theme/pipes";
-//import * as pluginAnnotations from "chartjs-plugin-annotation";
 
 @Component({
   selector: "ngx-barra",
@@ -83,18 +80,9 @@ export class BarraComponent {
         for (let numero of res1) {
           //Recorrido del principio
           if (inicio == 0) {
-            console.log(
-              "AÑO:" +
-                numero.Anio +
-                "Firma casa" +
-                numero.firma_casa +
-                numero.contador
-            );
             this.barChartLabels.push(numero.Anio.toString());
             if (numero.firma_casa == 0) {
               this.barChartData[i].data[j] = numero.contador;
-              console.log("Y he entrado en FIRMA CASA=0");
-              console.log("El array VALE" + this.barChartData[i].data[j]);
               j = j + 1;
               marca0 = 1;
               inicio = inicio + 1;
@@ -103,7 +91,6 @@ export class BarraComponent {
               //firma casa=1
               this.barChartData[1].data[k] = numero.contador;
               k = k + 1;
-              console.log("FIRMA CASA=1" + numero.contador);
               marca1 = 1;
               inicio = inicio + 1;
               ano = numero.Anio;
@@ -124,8 +111,6 @@ export class BarraComponent {
             }
             if (numero.firma_casa == 0) {
               this.barChartData[i].data[j] = numero.contador;
-              console.log("Y he entrado en FIRMA CASA=0");
-              console.log("El array VALE" + this.barChartData[i].data[j]);
               j = j + 1;
               marca0 = 1;
               inicio = inicio + 1;
@@ -134,7 +119,6 @@ export class BarraComponent {
               //firma casa=1
               this.barChartData[1].data[k] = numero.contador;
               k = k + 1;
-              console.log("FIRMA CASA=1" + numero.contador);
               marca1 = 1;
               inicio = inicio + 1;
               ano = numero.Anio;
@@ -148,25 +132,20 @@ export class BarraComponent {
   } //for
   //Metodo de llamada del select del año
   setAnio(value: number) {
-    console.log("EL AÑO SELECCIONADO ES " + value);
-    console.log("the period es " + this.periodo);
     //Actualizas el valor del año
     this.value = value;
     //inicializo
     //this.barChartLabels.length = 0;
     //Preguntamos que valor tiene periodo
     if (this.periodo == "week") {
-      console.log("He entrado en week");
       this.getGraficoWeek(this.periodo);
       //this.randomize();
     }
     if (this.periodo == "year") {
-      console.log("He entrado en YEAR");
       this.getGraficoYear(this.periodo);
       //this.randomize();
     }
     if (this.periodo == "month") {
-      console.log("He entrado en month");
       this.getGraficoMes(this.periodo);
     }
   }
@@ -174,15 +153,12 @@ export class BarraComponent {
   setPeriodo(seleccionadoperiodo: string) {
     if (this.periodo !== seleccionadoperiodo)
       this.periodo = seleccionadoperiodo;
-    console.log("Periodo vale " + this.periodo);
     switch (this.periodo) {
       case "year":
         this.getGraficoYear(seleccionadoperiodo);
-        //this.randomize();
         break;
       case "week":
         this.getGraficoWeek(seleccionadoperiodo);
-        //this.randomize();
         break;
       case "month":
         this.getGraficoMes(seleccionadoperiodo);
@@ -192,8 +168,6 @@ export class BarraComponent {
   }
   //Seleccionando por year
   getGraficoYear(seleccionadoperiodo: string) {
-    console.log("He entrado en GRAFICO AÑO");
-    console.log("El AÑO vale" + this.value);
     this.randomize();
     this.service
       .getConsentimientosTransaccionesFirma()
@@ -212,18 +186,10 @@ export class BarraComponent {
           //Preguntas por el año
           if (numero.Anio == this.value) {
             //Preguntamos por la firma casa
-            console.log("AÑO:" + this.value + "Firma casa" + numero.firma_casa);
             if (numero.firma_casa == 0) {
               sumaContadorF0 = numero.contador;
-              console.log(
-                "Año" +
-                  numero.Anio +
-                  "DENTRO FIRMA 0 0 0 y vale" +
-                  sumaContadorF0
-              );
             } else {
               sumaContadorF1 = numero.contador;
-              console.log("DENTRO DE FIRMA 1 1 1y vale" + sumaContadorF1);
             }
           }
         } //for
@@ -239,8 +205,6 @@ export class BarraComponent {
       });
   }
   getGraficoMes(seleccionadoperiodo: string) {
-    console.log("He entrado en GRAFICO MES");
-    console.log("El AÑO EN MES vale: " + this.value);
     this.service
       .getConsentimientosTransaccionesGAFM()
       .subscribe((res: consentimientovwtransacciones[]) => {
@@ -286,13 +250,10 @@ export class BarraComponent {
       });
   }
   getGraficoWeek(seleccionadoperiodo: string) {
-    console.log("GRAFICO SEMANA");
-    console.log("El AÑO ES " + this.value);
     this.service
       .getConsentimientosTransaccionesGAFW()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.datasemana = res;
-        console.log(this.datasemana);
         var i = 0;
         var j = 0;
         this.barChartLabels.length = 0;
