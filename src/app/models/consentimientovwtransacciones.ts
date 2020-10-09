@@ -1,5 +1,4 @@
 export interface consentimientovwtransacciones {
-  //Vista de sql generada en node.js
   Anio: number;
   Mes: number;
   Dia: number;
