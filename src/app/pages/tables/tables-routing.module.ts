@@ -1,33 +1,114 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { TablesComponent } from "./tables.component";
+import { TreeGridComponent } from "./tree-grid/tree-grid.component";
+import { ConsentimientoTableComponent } from "./consentimiento-table/consentimiento-table.component";
+import { EspecialistaIndexComponent } from "./especialista-index/especialista-index.component";
+import { CentrosaludComponent } from "./centrosalud/centrosalud.component";
+import { EspecialidadComponent } from "./especialidad/especialidad.component";
+import { PacienteComponent } from "./paciente/paciente.component";
+import { ProcedimientosComponent } from "./procedimientos/procedimientos.component";
+import { ProcedimientoscentrosaludComponent } from "./procedimientoscentrosalud/procedimientoscentrosalud.component";
+import { ProcedimientoscentrosaludconsentimientoComponent } from "./procedimientoscentrosaludconsentimiento/procedimientoscentrosaludconsentimiento.component";
+import { EspecialistaConsentimientoComponent } from "./especialistaconsentimiento/especialistaconsentimiento.component";
+import { CentrosaludEspecialistaComponent } from "./centrosaludEspecialista/centrosaludEspecialista.component";
+import { EspecialidadcentrosaludComponent } from "./especialidadcentrosalud/especialidadcentrosalud.component";
+import { EspecialidadcentrosaludConsentimientoComponent } from "./especialidadcentrosaludConsentimiento/especialidadcentrosaludConsentimiento.component";
+import { PacienteconsentimientoComponent } from "./pacienteconsentimiento/pacienteconsentimiento.component";
+import { ConsentimientovwreporteComponent } from "./consentimiento-vwreporte/consentimiento-vwreporte.component";
+import { especialidadEspecialistaComponent } from "./especialidadEspecialista/especialidadEspecialista.component";
 
-import { TablesComponent } from './tables.component';
-import { SmartTableComponent } from './smart-table/smart-table.component';
-import { TreeGridComponent } from './tree-grid/tree-grid.component';
+const routes: Routes = [
+  {
+    path: "",
+    component: TablesComponent,
+    children: [
+      {
+        path: "tree-grid",
+        component: TreeGridComponent,
+      },
+      {
+        path: "centrosalud",
+        component: CentrosaludComponent,
+      },
+      {
+        path: "centrosaludEspecialista",
+        component: CentrosaludEspecialistaComponent,
+      },
+      {
+        path: "consentimiento-table",
+        component: ConsentimientoTableComponent,
+      },
+      {
+        path: "consentimiento-vwreporte",
+        component: ConsentimientovwreporteComponent,
+      },
+      {
+        path: "especialidad",
+        component: EspecialidadComponent,
+      },
+      {
+        path: "especialidadEspecialista",
+        component: especialidadEspecialistaComponent,
+      },
+      {
+        path: "especialidadcentrosalud",
+        component: EspecialidadcentrosaludComponent,
+      },
+      {
+        path: "especialidadcentrosaludConsentimiento",
+        component: EspecialidadcentrosaludConsentimientoComponent,
+      },
 
-const routes: Routes = [{
-  path: '',
-  component: TablesComponent,
-  children: [
-    {
-      path: 'smart-table',
-      component: SmartTableComponent,
-    },
-    {
-      path: 'tree-grid',
-      component: TreeGridComponent,
-    },
-  ],
-}];
+      {
+        path: "especialista-index",
+        component: EspecialistaIndexComponent,
+      },
+      {
+        path: "especialistaconsentimiento",
+        component: EspecialistaConsentimientoComponent,
+      },
+
+      {
+        path: "paciente",
+        component: PacienteComponent,
+      },
+      {
+        path: "pacienteconsentimiento",
+        component: PacienteconsentimientoComponent,
+      },
+      {
+        path: "procedimientos",
+        component: ProcedimientosComponent,
+      },
+      {
+        path: "procedimientoscentrosalud",
+        component: ProcedimientoscentrosaludComponent,
+      },
+      {
+        path: "procedimientoscentrosaludconsentimiento",
+        component: ProcedimientoscentrosaludconsentimientoComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TablesRoutingModule { }
+export class TablesRoutingModule {}
 
 export const routedComponents = [
   TablesComponent,
-  SmartTableComponent,
   TreeGridComponent,
+  ConsentimientoTableComponent,
+  ConsentimientovwreporteComponent,
+  EspecialistaIndexComponent,
+  especialidadEspecialistaComponent,
+  CentrosaludComponent,
+  EspecialidadComponent,
+  PacienteComponent,
+  ProcedimientoscentrosaludComponent,
+  ProcedimientoscentrosaludconsentimientoComponent,
 ];

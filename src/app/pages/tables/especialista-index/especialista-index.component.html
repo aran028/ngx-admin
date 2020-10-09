@@ -1,0 +1,25 @@
+<nb-card>
+  <nb-card-header>
+    <div class="item text-primary">
+      <div class="color bg-status-primary">
+        <h5 class="text-primary">Especialistas > index()</h5>
+        Todos los especialistas
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-2 col-xs-6">
+        <button (click)="exportAsXLSX()" class="btn btn-outline-primary">
+          Download Excel
+        </button>
+      </div>
+      <div class="col-md-2 col-xs-6">
+        <button (click)="exportAsPDF()" class="btn btn-outline-primary">
+          Download PDF
+        </button>
+      </div>
+    </div>
+    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

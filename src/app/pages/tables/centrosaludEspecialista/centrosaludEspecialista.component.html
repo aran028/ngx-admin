@@ -1,0 +1,42 @@
+<nb-card>
+  <nb-card-header>
+    <div class="item text-primary">
+      <div class="color bg-status-primary"></div>
+      <div>
+        <h5 class="text-primary">Centros de salud > Especialistas</h5>
+        Especialistas de un centro de salud seleccionado
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-4">
+        <button (click)="exportAsXLSX()" class="btn btn-outline-primary">
+          Download Excel
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button (click)="exportAsPDF()" class="btn btn-outline-primary">
+          Download PDF
+        </button>
+      </div>
+      <div class="col-md-4">
+        <select
+          class="form-control"
+          #mySelect
+          name="miselectCentro"
+          (change)="setCentroSalud(mySelect.value)"
+        >
+          <option selected disabled value="">
+            Selecciona centro de salud.....
+          </option>
+          <option class="option" *ngFor="let ctro of data" [value]="ctro.id">
+            {{ ctro.id }}
+            {{ ctro.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

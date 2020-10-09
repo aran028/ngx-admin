@@ -1,0 +1,41 @@
+<nb-card>
+  <nb-card-header>
+    <div class="item text-primary">
+      <div class="color bg-status-primary">
+        <h5 class="text-primary">Pacientes > Consentimientos()</h5>
+        Todos los consentimientos de un paciente seleccionado
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-4">
+        <button (click)="exportAsXLSX()" class="btn btn-outline-primary">
+          Download Excel
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button (click)="exportAsPDF()" class="btn btn-outline-primary">
+          Download PDF
+        </button>
+      </div>
+      <div class="col-md-4">
+        <!-- <label for="validationServer01">Paciente</label>-->
+        <select
+          class="form-control"
+          #mySelect
+          name="miselectPaciente"
+          (change)="setPaciente(mySelect.value)"
+        >
+          <option selected disabled value="">Selecciona paciente ....</option>
+          <option class="option" *ngFor="let pac of data" [value]="pac.id">
+            {{ pac.id }}
+            {{ pac.apellido }}
+            {{ pac.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

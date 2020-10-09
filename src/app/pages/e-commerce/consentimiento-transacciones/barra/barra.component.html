@@ -1,0 +1,65 @@
+<nb-card size="large">
+  <nb-card-header>
+    <h2>Consentimientos con estado</h2>
+    <div class="subtitle">
+      Consentimientos con estado 1 agrupados por año, firma en local y firma en
+      casa
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="chart-container">
+      <form>
+        <div class="row">
+          <div class="col">
+            <select
+              class="form-control"
+              #mySelect
+              name="miselectAnio"
+              (change)="setAnio(mySelect.value)"
+            >
+              <option selected disabled value="">Selecciona año ....</option>
+              <option
+                class="option"
+                *ngFor="let Aniob of data"
+                [value]="Aniob.Anio"
+              >
+                {{ Aniob.Anio }}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <ngx-cons-trans-header
+              [type]="periodo"
+              (periodChange)="setPeriodo($event)"
+            >
+            </ngx-cons-trans-header>
+            <small id="emailHelp" class="form-text text-muted"
+              >Forma de ver gráfico: week, month o year</small
+            >
+          </div>
+        </div>
+      </form>
+      <div style="display: block">
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"
+        ></canvas>
+      </div>
+      <button
+        class="btn btn-primary mb-2"
+        mat-button
+        mat-raised-button
+        color="primary"
+        (click)="randomize()"
+      >
+        Cambiar Tipo
+      </button>
+    </div>
+  </nb-card-body>
+</nb-card>

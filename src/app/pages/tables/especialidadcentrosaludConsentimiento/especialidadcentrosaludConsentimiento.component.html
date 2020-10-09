@@ -1,0 +1,49 @@
+<nb-card>
+  <nb-card-header>
+    <div class="item text-primary">
+      <div class="color bg-status-primary"></div>
+      <div>
+        <h5 class="text-primary">
+          Especialidad Centro Salud > Consentimientos
+        </h5>
+        Todos los consentimientos de una especialidad seleccionada
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-4">
+        <button (click)="exportAsXLSX()" class="btn btn-outline-primary">
+          Download Excel
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button (click)="exportAsPDF()" class="btn btn-outline-primary">
+          Download PDF
+        </button>
+      </div>
+      <div class="col-md-4">
+        <select
+          class="form-control"
+          #mySelect
+          name="miselectEspecialidadCentro"
+          (change)="setEspecialidadCentro(mySelect.value)"
+        >
+          <option selected disabled value="">
+            Selecciona especialidad centro salud....
+          </option>
+          <option
+            class="option"
+            *ngFor="let especentro of data"
+            [value]="especentro.id"
+          >
+            {{ especentro.id }}
+            {{ especentro.Centro_Salud }}
+            {{ especentro.Especialidad }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

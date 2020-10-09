@@ -1,0 +1,20 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <h2>Todos los consentimientos</h2>
+    <div class="subtitle">Consentimientos con estado 1 y estado 0 por año</div>
+  </nb-card-header>
+  <div>
+    <div>
+      <div style="display: block">
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+</nb-card>
