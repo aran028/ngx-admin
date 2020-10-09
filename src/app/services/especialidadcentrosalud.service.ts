@@ -9,10 +9,10 @@ import { Especialidadcentrosalud } from "../models/especialidadcentrosalud";
 export class EspecialidadcentrosaludService {
   constructor(private http: HttpClient) {}
 
-  //Todos los registros de la vista
+  // Todos los registros de la vista
   getEspecialidadCentroSalud(): Observable<Especialidadcentrosalud[]> {
     return this.http.get<Especialidadcentrosalud[]>(
-      //"http://api.factureprocessmed.com/api/especialidad_centro_saluds"
+      // "http://api.factureprocessmed.com/api/especialidad_centro_saluds"
       "/apifactprocessmed/especialidadcentrosaluds"
     );
   }

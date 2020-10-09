@@ -16,7 +16,7 @@ export class ConsentimientovwreporteService {
 
   getConsentimientos(): Observable<consentimientovwreporte[]> {
     return this.http.get<consentimientovwreporte[]>(
-      //"http://api.factureprocessmed.com/api/consentimientos"
+      // "http://api.factureprocessmed.com/api/consentimientos"
       "/apifactprocessmed/consentimientosvwreporte"
     );
   }

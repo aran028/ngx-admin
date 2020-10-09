@@ -10,14 +10,14 @@ import { Consentimiento } from "../models/consentimiento";
 export class ProcedimientoscentrosaludconsentimientoService {
   constructor(private http: HttpClient) {}
 
-  //Obtener todos los registros de procedimientos_centro_salud para alimentar desplegable y seleccionar uno
+  // Obtener todos los registros de procedimientos_centro_salud para alimentar desplegable y seleccionar uno
   getProcedimientoscentrosalud(): Observable<Procedimientoscentrosalud[]> {
     return this.http.get<Procedimientoscentrosalud[]>(
-      //"http://api.factureprocessmed.com/api/procedimientos_centro_saluds"
+      // "http://api.factureprocessmed.com/api/procedimientos_centro_saluds"
       "/apifactprocessmed/procedimientocentrosaludD"
     );
   }
-  //Todos los consentimientos de un procedimiento_centro_salud_seleccionado
+  // Todos los consentimientos de un procedimiento_centro_salud_seleccionado
   getProcedimientocentrosaludConsentimientos(
     id: number
   ): Observable<Consentimiento[]> {

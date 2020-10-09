@@ -1,12 +1,8 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { ChartDataSets, ChartOptions, ChartType } from "chart.js";
 import { Label } from "ng2-charts";
-//importamos el modelo ConsentimientovwTransacciones para la grafica
 import { consentimientovwtransacciones } from "../../../../models/consentimientovwtransacciones";
-//importo el servicio para mostrar datos en gráfica
 import { ConsentimientovwtransaccionesService } from "../../../../services/consentimientovwtransacciones.service";
-import { sign } from "crypto";
-//import * as pluginAnnotations from "chartjs-plugin-annotation";
 
 @Component({
   selector: "ngx-linea",
@@ -51,8 +47,8 @@ export class LineaComponent {
   }
 
   ngOnInit() {
-    //Al iniciar se ejectua la consulta http://localhost:3000/consentimientosG1
-    //Es decir cuenta por año los registros que tienen el estado=1
+    // Al iniciar se ejectua la consulta http://localhost:3000/consentimientosG1
+    // Es decir cuenta por año los registros que tienen el estado=1
     this.service
       .getConsentimientosG1()
       .subscribe((res: consentimientovwtransacciones[]) => {
@@ -64,57 +60,54 @@ export class LineaComponent {
       .getConsentimientosG1()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.data = res;
-        var i = 0;
+        const i = 0;
         var j = 0;
         for (let numero of res) {
           this.barChartLabels.push(numero.Anio.toString());
           this.barChartData[i].data[j] = numero.contador; //Leyenda de encima
           j = j + 1;
-        } //for
+        } // for
         this.barChartData[i].label = "Estado: 1";
         this.periodo = "year"; //for //}
       });
   }
 
-  //Metodo de llamada del select del año
+  // Metodo de llamada del select del año
   setAnio(value: number) {
-    //Actualizas el valor del año
+    // Actualizas el valor del año
     this.value = value;
-    //inicializo
-    //this.barChartLabels.length = 0;
-    //Preguntamos que valor tiene periodo
+    // inicializo
+    // Preguntamos que valor tiene periodo
     if (this.periodo == "week") {
       this.getGraficoWeek(this.periodo);
-      //this.randomize();
     }
     if (this.periodo == "year") {
       this.getGraficoYear(this.periodo);
-      //this.randomize();
     }
     if (this.periodo == "month") {
       this.getGraficoMes(this.periodo);
     }
   }
-  //Metodo de llamada del select del periodo
+  // Metodo de llamada del select del periodo
   setPeriodo(seleccionadoperiodo: string) {
     if (this.periodo !== seleccionadoperiodo)
       this.periodo = seleccionadoperiodo;
     switch (this.periodo) {
       case "year":
         this.getGraficoYear(seleccionadoperiodo);
-        //this.randomize();
+        // this.randomize();
         break;
       case "week":
         this.getGraficoWeek(seleccionadoperiodo);
-        //this.randomize();
+        // this.randomize();
         break;
       case "month":
         this.getGraficoMes(seleccionadoperiodo);
-        //this.randomize();
+        // this.randomize();
         break;
     }
   }
-  //Seleccionando por year
+  // Seleccionando por year
   getGraficoYear(seleccionadoperiodo: string) {
     this.service
       .getConsentimientosG1()
@@ -128,12 +121,12 @@ export class LineaComponent {
           if (numero.Anio == this.value) {
             sumaContador = sumaContador + numero.contador;
           }
-        } //for
+        } // for
         this.barChartLabels.length = 0;
         this.barChartLabels.push(this.value.toString());
         this.barChartData[i].data[j] = sumaContador; //Leyenda de encima
         this.barChartData[i].label = "Estado:" + 1; //}
-        //this.randomize();
+        // this.randomize();
       });
   }
   getGraficoWeek(seleccionadoperiodo: string) {
@@ -160,8 +153,8 @@ export class LineaComponent {
           if (numero.Anio == this.value) {
             this.barChartData[i].data[numero.Dia - 1] = numero.contador;
           }
-        } //for
-        //Leyenda de encima
+        } // for
+        // Leyenda de encima
         this.barChartData[i].label = "Estado=1";
         this.randomize();
       });
@@ -173,7 +166,7 @@ export class LineaComponent {
         this.datames = res;
         var i = 0;
         this.barChartLabels.length = 0;
-        //inicializar barChartData
+        // inicializar barChartData
         for (var j = 0; j <= 11; j++) {
           this.barChartData[0].data[j] = 0;
         }

@@ -11,7 +11,6 @@ const EXCEL_EXT = ".xlsx";
 @Injectable()
 export class ExporterService {
   constructor() {}
-  //Creamos metodo
   exportToExcel(json: any[], excelFileName: string): void {
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
     const workbook: XLSX.WorkBook = {
@@ -22,12 +21,12 @@ export class ExporterService {
       bookType: "xlsx",
       type: "array",
     });
-    //llamar metodo para guardar el fichero
+    // llamar metodo para guardar el fichero
     this.saveAsExcel(excelBuffer, excelFileName);
   }
   private saveAsExcel(buffer: any, fileName: string): void {
     const data: Blob = new Blob([buffer], { type: EXCEL_TYPE });
-    //configuramos el nombre de nuestro fichero
+    // configuramos el nombre de nuestro fichero
     FileSaver.saveAs(
       data,
       fileName + "_export_" + new Date().toLocaleString() + EXCEL_EXT
@@ -39,11 +38,7 @@ export class ExporterService {
     let values: any;
     let data = json;
     let cab = text;
-    for (let property of data) {
-      console.log(data[property]);
-    }
     values = data.map((elemento) => Object.values(elemento));
-    console.log(values);
 
     autoTable(pdf, {
       head: [cab],
@@ -64,8 +59,6 @@ export class ExporterService {
 
     // Open PDF document in new tab
     pdf.output("dataurlnewwindow");
-
-    console.log("Impresion PDF");
     pdf.save(pdfFileName + ".pdf");
   }
 }

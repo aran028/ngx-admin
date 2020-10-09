@@ -13,9 +13,8 @@ export class EspecialistaService {
   //Todos los registros de la vista
   getEspecialitas(): Observable<Especialista[]> {
     return this.http.get<Especialista[]>(
-      //Laravel
-      //"http://api.factureprocessmed.com/api/especialistas"
-      //Angular
+      // Laravel
+      // "http://api.factureprocessmed.com/api/especialistas"
       "/apifactprocessmed/especialistas"
     );
   }

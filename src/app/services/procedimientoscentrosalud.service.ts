@@ -9,14 +9,14 @@ import { Procedimientoscentrosalud } from "../models/procedimientoscentrosalud";
 export class ProcedimientoscentrosaludService {
   constructor(private http: HttpClient) {}
 
-  //Obtener todos los registros de procedimientoscentrosalud para alimentar desplegable y seleccionar uno
+  // Obtener todos los registros de procedimientoscentrosalud para alimentar desplegable y seleccionar uno
   getProcedimientoscentrosalud(): Observable<Procedimientoscentrosalud[]> {
     return this.http.get<Procedimientoscentrosalud[]>(
-      //"http://api.factureprocessmed.com/api/procedimientos_centro_saluds"
+      // "http://api.factureprocessmed.com/api/procedimientos_centro_saluds"
       "/apifactprocessmed/procedimientocentrosaludD"
     );
   }
-  //Todos los especialistas de un centro de salud concreto
+  // Todos los especialistas de un centro de salud concreto
   getProcedimientocentrosaludId(
     id: number
   ): Observable<Procedimientoscentrosalud[]> {

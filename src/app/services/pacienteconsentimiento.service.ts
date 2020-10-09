@@ -13,17 +13,17 @@ import { Consentimiento } from "../models/consentimiento";
 export class PacienteconsentimientoService {
   constructor(private http: HttpClient) {}
 
-  //Todos los registros de pacientes para el desplegable
+  // Todos los registros de pacientes para el desplegable
   getPacienteD(): Observable<Paciente[]> {
     return this.http.get<Paciente[]>(
-      //"http://api.factureprocessmed.com/api/pacientes"
+      // "http://api.factureprocessmed.com/api/pacientes"
       "/apifactprocessmed/pacientesD"
     );
   }
-  //Todos los registros de consentimientos de un paciente indicado con nº historia clinica
+  // Todos los registros de consentimientos de un paciente indicado con nº historia clinica
   getPacienteConsentimiento(id: number): Observable<Consentimiento[]> {
     return this.http.get<Consentimiento[]>(
-      //"http://api.factureprocessmed.com/api/pacientes/" +
+      // "http://api.factureprocessmed.com/api/pacientes/" +
       //  id +
       //  "/consentimientos"
       "/apifactprocessmed/pacienteconsentimientos/" + id

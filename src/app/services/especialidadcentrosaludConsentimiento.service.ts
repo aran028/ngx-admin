@@ -11,14 +11,14 @@ import { Observable } from "rxjs";
 export class EspecialidadcentrosaludConsentimientoService {
   constructor(private http: HttpClient) {}
 
-  //Todos los registros de especialidadCentroSalud para cargar el desplegable
+  // Todos los registros de especialidadCentroSalud para cargar el desplegable
   getEspecialidadCentroSalud(): Observable<Especialidadcentrosalud[]> {
     return this.http.get<Especialidadcentrosalud[]>(
-      //"http://api.factureprocessmed.com/api/especialidad_centro_saluds" /
+      // "http://api.factureprocessmed.com/api/especialidad_centro_saluds" /
       "apifactprocessmed/especialidadcentrosaluds"
     );
   }
-  //Todos los registros de consentimientos con la especialidad_centro_salud seleccionada
+  // Todos los registros de consentimientos con la especialidad_centro_salud seleccionada
   getConsentimientoEspecialidadCentroSalud(
     id: number
   ): Observable<Consentimiento[]> {

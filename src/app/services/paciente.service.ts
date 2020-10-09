@@ -10,10 +10,10 @@ import "rxjs/Rx";
 })
 export class PacienteService {
   constructor(private http: HttpClient) {}
-  //Todos los registros de la vista
+  // Todos los registros de la vista
   getPaciente(): Observable<Paciente[]> {
     return this.http.get<Paciente[]>(
-      //"http://api.factureprocessmed.com/api/pacientes"
+      // "http://api.factureprocessmed.com/api/pacientes"
       "/apifactprocessmed/pacientes"
     );
   }

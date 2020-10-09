@@ -8,7 +8,7 @@ import { Procedimientos } from "../models/procedimientos";
 })
 export class ProcedimientosService {
   constructor(private http: HttpClient) {}
-  //Todos los registros de la vista
+  // Todos los registros de la vista
   getProcedimientos(): Observable<Procedimientos[]> {
     return this.http.get<Procedimientos[]>(
       // "http://api.factureprocessmed.com/api/procedimientos"

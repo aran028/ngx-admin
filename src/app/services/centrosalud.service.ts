@@ -11,9 +11,9 @@ export class CentrosaludService {
   //Todos los registros de la vista
   getCentrosSalud(): Observable<Centrosalud[]> {
     return this.http.get<Centrosalud[]>(
-      //Laravel
-      //"http://api.factureprocessmed.com/api/centro_de_saluds"
-      //Node.js
+      // Laravel
+      // "http://api.factureprocessmed.com/api/centro_de_saluds"
+      // Node.js
       "/apifactprocessmed/centrodesalud"
     );
   }
