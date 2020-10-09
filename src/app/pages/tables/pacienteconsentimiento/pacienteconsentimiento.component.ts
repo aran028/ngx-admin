@@ -104,7 +104,6 @@ export class PacienteconsentimientoComponent implements OnInit {
       .getPacienteConsentimiento(this.valorpaciente)
       .subscribe((res: Consentimiento[]) => {
         this.datac = res;
-        console.log(this.datac);
         this.source.load(this.datac);
       });
     this.titulo = "list_Consentimientos_de_paciente " + this.valorpaciente;

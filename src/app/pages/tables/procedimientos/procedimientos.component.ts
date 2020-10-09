@@ -56,7 +56,6 @@ export class ProcedimientosComponent {
   ) {
     this.service.getProcedimientos().subscribe((res: Procedimientos[]) => {
       this.data = res;
-      console.log(this.data);
       this.source.load(this.data);
     });
     this.titulo = "list_Procedimientos_index";

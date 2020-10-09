@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LocalDataSource } from "ng2-smart-table";
-//importamos el modelo ConsentimientovwTransacciones
 import { Especialista } from "../../../models/especialista";
-//Importamos el servicio
 import { EspecialistaService } from "../../../services/especialista.service";
 import { ExporterService } from "../../../services/exporter.service";
 
@@ -86,7 +84,6 @@ export class EspecialistaIndexComponent {
   ) {
     this.service.getEspecialitas().subscribe((res: Especialista[]) => {
       this.data = res;
-      console.log(this.data);
       this.source.load(this.data);
     });
     this.titulo = "list_Especialistas_index";

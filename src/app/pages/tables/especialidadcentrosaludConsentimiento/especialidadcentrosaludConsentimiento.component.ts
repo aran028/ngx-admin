@@ -1,12 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import jsPDF from "jspdf";
 import { LocalDataSource } from "ng2-smart-table";
 import { Consentimiento } from "../../../models/consentimiento";
 import { Especialidad } from "../../../models/especialidad";
 import { Especialidadcentrosalud } from "../../../models/especialidadcentrosalud";
 import { EspecialidadcentrosaludService } from "../../../services/especialidadcentrosalud.service";
 import { EspecialidadcentrosaludConsentimientoService } from "../../../services/especialidadcentrosaludConsentimiento.service";
-import { EspecialistaService } from "../../../services/especialista.service";
 import { ExporterService } from "../../../services/exporter.service";
 
 @Component({
@@ -111,7 +109,6 @@ export class EspecialidadcentrosaludConsentimientoComponent implements OnInit {
       .getConsentimientoEspecialidadCentroSalud(this.valorespecialidadCentro)
       .subscribe((res: [Consentimiento]) => {
         this.datac = res;
-        console.log(this.datac);
         this.source.load(this.datac);
       });
     this.titulo =

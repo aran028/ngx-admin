@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { TablesComponent } from "./tables.component";
-import { TreeGridComponent } from "./tree-grid/tree-grid.component";
 import { ConsentimientoTableComponent } from "./consentimiento-table/consentimiento-table.component";
 import { EspecialistaIndexComponent } from "./especialista-index/especialista-index.component";
 import { CentrosaludComponent } from "./centrosalud/centrosalud.component";
@@ -23,10 +22,6 @@ const routes: Routes = [
     path: "",
     component: TablesComponent,
     children: [
-      {
-        path: "tree-grid",
-        component: TreeGridComponent,
-      },
       {
         path: "centrosalud",
         component: CentrosaludComponent,
@@ -101,7 +96,6 @@ export class TablesRoutingModule {}
 
 export const routedComponents = [
   TablesComponent,
-  TreeGridComponent,
   ConsentimientoTableComponent,
   ConsentimientovwreporteComponent,
   EspecialistaIndexComponent,

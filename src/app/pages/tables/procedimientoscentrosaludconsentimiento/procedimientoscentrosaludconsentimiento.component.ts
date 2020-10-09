@@ -101,7 +101,6 @@ export class ProcedimientoscentrosaludconsentimientoComponent
       .getProcedimientocentrosaludConsentimientos(this.valorproc)
       .subscribe((res: [Consentimiento]) => {
         this.datac = res;
-        console.log(this.datac);
         this.source.load(this.datac);
       });
     this.titulo =

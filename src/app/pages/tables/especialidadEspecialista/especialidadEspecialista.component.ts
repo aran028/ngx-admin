@@ -87,7 +87,6 @@ export class especialidadEspecialistaComponent implements OnInit {
   ngOnInit(): void {
     //Cargar todos los especialidades en el desplegable
     this.service.getEspe().subscribe((res: Especialidad[]) => {
-      console.log(this.data);
       this.data = res;
     });
   }
@@ -99,7 +98,6 @@ export class especialidadEspecialistaComponent implements OnInit {
       .getEspecialistaEspecialidad(this.valorespecialidad)
       .subscribe((res: [Especialista]) => {
         this.datae = res;
-        console.log(this.datae);
         this.source.load(this.datae);
       });
     this.titulo =

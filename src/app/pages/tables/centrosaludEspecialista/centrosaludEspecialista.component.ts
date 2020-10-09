@@ -4,7 +4,6 @@ import { ExporterService } from "../../../services/exporter.service";
 import { Centrosalud } from "../../../models/centrosalud";
 import { Especialista } from "../../../models/especialista";
 import { LocalDataSource } from "ng2-smart-table";
-import jsPDF from "jspdf";
 
 @Component({
   selector: "ngx-centrosaludEspecialista",

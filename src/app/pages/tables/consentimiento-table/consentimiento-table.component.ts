@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LocalDataSource } from "ng2-smart-table";
-//importamos el modelo ConsentimientovwTransacciones
 import { consentimientovwtransacciones } from "../../../models/consentimientovwtransacciones";
-//Importamos el servicio
 import { ConsentimientovwtransaccionesService } from "../../../services/consentimientovwtransacciones.service";
 import { ExporterService } from "../../../services/exporter.service";
 
@@ -60,7 +58,6 @@ export class ConsentimientoTableComponent {
       .getConsentimientosTransaccionesFirma()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.data = res;
-        console.log(this.data);
         this.source.load(this.data);
       });
     this.titulo = "list_NumConsentimientos_anio_estado_1_firma_casa";

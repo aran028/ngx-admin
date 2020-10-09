@@ -80,7 +80,6 @@ export class ProcedimientoscentrosaludComponent implements OnInit {
       .getProcedimientocentrosaludId(this.valorproc)
       .subscribe((res: [Procedimientoscentrosalud]) => {
         this.datac = res;
-        console.log(this.datac);
         this.source.load(this.datac);
       });
     this.titulo = "list_Procedimientos_centro_salud_index";

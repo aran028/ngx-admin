@@ -92,7 +92,6 @@ export class PacienteComponent {
   ) {
     this.service.getPaciente().subscribe((res: Paciente[]) => {
       this.data = res;
-      console.log(this.data);
       this.source.load(this.data);
     });
     this.titulo = "list_Pacientes_index";

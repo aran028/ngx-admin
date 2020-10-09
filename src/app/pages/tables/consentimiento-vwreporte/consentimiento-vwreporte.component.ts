@@ -81,7 +81,6 @@ export class ConsentimientovwreporteComponent {
       .getConsentimientos()
       .subscribe((res: consentimientovwreporte[]) => {
         this.data = res;
-        console.log(this.data);
         this.source.load(this.data);
       });
     this.titulo = "list_vw_reporte_consentimiento";

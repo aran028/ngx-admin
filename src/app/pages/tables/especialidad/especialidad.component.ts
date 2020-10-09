@@ -55,7 +55,6 @@ export class EspecialidadComponent {
   ) {
     this.service.getEspecialidad().subscribe((res: Especialidad[]) => {
       this.data = res;
-      console.log(this.data);
       this.source.load(this.data);
     });
     this.titulo = "list_Especialidad_index";

@@ -1,14 +1,8 @@
 import { NgModule } from "@angular/core";
-import {
-  NbCardModule,
-  NbIconModule,
-  NbInputModule,
-  NbTreeGridModule,
-} from "@nebular/theme";
+import { NbCardModule, NbIconModule, NbInputModule } from "@nebular/theme";
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { ThemeModule } from "../../@theme/theme.module";
 import { TablesRoutingModule, routedComponents } from "./tables-routing.module";
-import { FsIconComponent } from "./tree-grid/tree-grid.component";
 import { CentrosaludComponent } from "./centrosalud/centrosalud.component";
 import { EspecialidadComponent } from "./especialidad/especialidad.component";
 import { PacienteComponent } from "./paciente/paciente.component";
@@ -25,7 +19,6 @@ import { ProcedimientoscentrosaludconsentimientoComponent } from "./procedimient
 @NgModule({
   imports: [
     NbCardModule,
-    NbTreeGridModule,
     NbIconModule,
     NbInputModule,
     ThemeModule,
@@ -34,7 +27,6 @@ import { ProcedimientoscentrosaludconsentimientoComponent } from "./procedimient
   ],
   declarations: [
     ...routedComponents,
-    FsIconComponent,
     CentrosaludComponent,
     EspecialidadComponent,
     PacienteComponent,

@@ -100,7 +100,6 @@ export class EspecialistaConsentimientoComponent implements OnInit {
       .getEspecialistaConsentimiento(this.valorespecialista)
       .subscribe((res: [Consentimiento]) => {
         this.datac = res;
-        console.log(this.datac);
         this.source.load(this.datac);
       });
   }

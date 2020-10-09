@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LocalDataSource } from "ng2-smart-table";
-//importamos el modelo ConsentimientovwTransacciones
 import { Centrosalud } from "../../../models/centrosalud";
-//Importamos el servicio
 import { CentrosaludService } from "../../../services/centrosalud.service";
 import { ExporterService } from "../../../services/exporter.service";
 
