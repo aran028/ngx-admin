@@ -8,13 +8,10 @@ import { Centrosalud } from "../models/centrosalud";
 export class CentrosaludService {
   constructor(private http: HttpClient) {}
 
-  //Todos los registros de la vista
+  // Todos los registros de la vista
   getCentrosSalud(): Observable<Centrosalud[]> {
     return this.http.get<Centrosalud[]>(
-      // Laravel
-      // "http://api.factureprocessmed.com/api/centro_de_saluds"
-      // Node.js
-      "/apifactprocessmed/centrodesalud"
+     "/apifactprocessmed/centrodesalud",
     );
   }
 }

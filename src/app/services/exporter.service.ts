@@ -29,15 +29,15 @@ export class ExporterService {
     // configuramos el nombre de nuestro fichero
     FileSaver.saveAs(
       data,
-      fileName + "_export_" + new Date().toLocaleString() + EXCEL_EXT
+      fileName + "_export_" + new Date().toLocaleString() + EXCEL_EXT,
     );
   }
 
   exportToPDF(json: any[], pdfFileName: string, text: any[]) {
     const pdf = new jsPDF();
     let values: any;
-    let data = json;
-    let cab = text;
+    const data = json;
+    const cab = text;
     values = data.map((elemento) => Object.values(elemento));
 
     autoTable(pdf, {
@@ -45,7 +45,7 @@ export class ExporterService {
       body: values,
       theme: "striped",
       // Default for all columns
-      //styles: { overflow: "ellipsize", cellWidth: "wrap" },
+      // styles: { overflow: "ellipsize", cellWidth: "wrap" },
       // styles: {
       //  overflow: "linebreak",
       // font: "arial",

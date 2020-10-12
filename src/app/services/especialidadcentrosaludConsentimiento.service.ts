@@ -14,19 +14,16 @@ export class EspecialidadcentrosaludConsentimientoService {
   // Todos los registros de especialidadCentroSalud para cargar el desplegable
   getEspecialidadCentroSalud(): Observable<Especialidadcentrosalud[]> {
     return this.http.get<Especialidadcentrosalud[]>(
-      // "http://api.factureprocessmed.com/api/especialidad_centro_saluds" /
-      "apifactprocessmed/especialidadcentrosaluds"
+          "apifactprocessmed/especialidadcentrosaluds",
     );
   }
   // Todos los registros de consentimientos con la especialidad_centro_salud seleccionada
   getConsentimientoEspecialidadCentroSalud(
+    // tslint:disable-next-line: trailing-comma
     id: number
   ): Observable<Consentimiento[]> {
     return this.http.get<Consentimiento[]>(
-      //"http://api.factureprocessmed.com/api/especialidad_centro_saluds/" +
-      //  id +
-      //  "/consentimientos"
-      "/apifactprocessmed/especialidadcentrosaludconsentimientos/" + id
+           "/apifactprocessmed/especialidadcentrosaludconsentimientos/" + id,
     );
   }
 }

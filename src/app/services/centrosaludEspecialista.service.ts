@@ -13,18 +13,14 @@ export class CentrosaludespecialistaService {
   // Todos los registros de centro_de_salud para alimentar el desplegable
   getCentrosSalud(): Observable<Centrosalud[]> {
     return this.http.get<Centrosalud[]>(
-      // Laravel
-      // "http://api.factureprocessmed.com/api/centro_de_saluds"
-      "/apifactprocessmed/centrodesalud"
+            "/apifactprocessmed/centrodesalud",
     );
   }
   // Todos los especialistas de un centro de salud concreto
   getCentroSaludEspecialista(id: number): Observable<Especialista[]> {
     return this.http.get<Especialista[]>(
-      // "http://api.factureprocessmed.com/api/centro_de_saluds/" +
-      //  id +
-      //  "/especialistas"
-      "apifactprocessmed/centrodesaludespecialistas/" + id
+      
+      "apifactprocessmed/centrodesaludespecialistas/" + id,
     );
   }
 }

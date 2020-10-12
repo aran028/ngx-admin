@@ -10,12 +10,10 @@ import "rxjs/Rx";
 })
 export class EspecialistaService {
   constructor(private http: HttpClient) {}
-  //Todos los registros de la vista
+  // Todos los registros de la vista
   getEspecialitas(): Observable<Especialista[]> {
     return this.http.get<Especialista[]>(
-      // Laravel
-      // "http://api.factureprocessmed.com/api/especialistas"
-      "/apifactprocessmed/especialistas"
+            "/apifactprocessmed/especialistas",
     );
   }
 }

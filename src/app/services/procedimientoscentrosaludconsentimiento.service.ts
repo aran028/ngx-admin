@@ -13,16 +13,16 @@ export class ProcedimientoscentrosaludconsentimientoService {
   // Obtener todos los registros de procedimientos_centro_salud para alimentar desplegable y seleccionar uno
   getProcedimientoscentrosalud(): Observable<Procedimientoscentrosalud[]> {
     return this.http.get<Procedimientoscentrosalud[]>(
-      // "http://api.factureprocessmed.com/api/procedimientos_centro_saluds"
-      "/apifactprocessmed/procedimientocentrosaludD"
+          "/apifactprocessmed/procedimientocentrosaludD",
     );
   }
   // Todos los consentimientos de un procedimiento_centro_salud_seleccionado
   getProcedimientocentrosaludConsentimientos(
+    // tslint:disable-next-line: trailing-comma
     id: number
   ): Observable<Consentimiento[]> {
     return this.http.get<Consentimiento[]>(
-      "/apifactprocessmed/procedimientocentrosaludconsentimientos/" + id
+      "/apifactprocessmed/procedimientocentrosaludconsentimientos/" + id,
     );
   }
 }

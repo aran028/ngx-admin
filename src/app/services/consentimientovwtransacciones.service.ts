@@ -15,7 +15,7 @@ export class ConsentimientovwtransaccionesService {
   // Grafico 1 - Numero de consentimientos por año y con estado 1 y desplegable G2
   getConsentimientosG1(): Observable<consentimientovwtransacciones[]> {
     return this.http.get<consentimientovwtransacciones[]>(
-      "/apifactprocessmed/consentimientosG1"
+      "/apifactprocessmed/consentimientosG1",
     );
   }
   // Grafico 2: Numero de consentimientos por año y con estado 1 y con firmacasa
@@ -23,7 +23,7 @@ export class ConsentimientovwtransaccionesService {
     consentimientovwtransacciones[]
   > {
     return this.http.get<consentimientovwtransacciones[]>(
-      "apifactprocessmed/consentimientosG2"
+      "/apifactprocessmed/consentimientosG2",
     );
   }
 
@@ -32,7 +32,7 @@ export class ConsentimientovwtransaccionesService {
     consentimientovwtransacciones[]
   > {
     return this.http.get<consentimientovwtransacciones[]>(
-      "apifactprocessmed/consentimientosG1Week"
+      "/apifactprocessmed/consentimientosG1Week",
     );
   }
   // Total de registros de consentimientos con estado 1 y agrupado por año, firma casa y dia (numero dia 0 domingo, 1 lunes)
@@ -40,7 +40,7 @@ export class ConsentimientovwtransaccionesService {
     consentimientovwtransacciones[]
   > {
     return this.http.get<consentimientovwtransacciones[]>(
-      "/apifactprocessmed/consentimientosG2Week"
+      "/apifactprocessmed/consentimientosG2Week",
     );
   }
   // Total de registros de consentimientos con estado 1 y agrupado por año, firma casa y mes)
@@ -48,7 +48,7 @@ export class ConsentimientovwtransaccionesService {
     consentimientovwtransacciones[]
   > {
     return this.http.get<consentimientovwtransacciones[]>(
-      "/apifactprocessmed/consentimientosG1Month"
+      "/apifactprocessmed/consentimientosG1Month",
     );
   }
   // Total de registros de consentimientos con estado 1 y agrupado por año, firma casa y mes
@@ -56,19 +56,19 @@ export class ConsentimientovwtransaccionesService {
     consentimientovwtransacciones[]
   > {
     return this.http.get<consentimientovwtransacciones[]>(
-      "apifactprocessmed/consentimientosG2Month"
+      "/apifactprocessmed/consentimientosG2Month",
     );
   }
   // Total de registros de consentimientos con estado 0 y 1
   getConsentimientosG3(): Observable<consentimientovwtransacciones[]> {
     return this.http.get<consentimientovwtransacciones[]>(
-      "apifactprocessmed/consentimientosG3"
+      "/apifactprocessmed/consentimientosG3",
     );
   }
   // Total de registros de consentimientos con estado 0 y 1 agrupados por año
   getConsentimientosG4(): Observable<consentimientovwtransacciones[]> {
     return this.http.get<consentimientovwtransacciones[]>(
-      "apifactprocessmed/consentimientosG4"
+      "apifactprocessmed/consentimientosG4",
     );
   }
 }

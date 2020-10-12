@@ -12,17 +12,16 @@ export class ProcedimientoscentrosaludService {
   // Obtener todos los registros de procedimientoscentrosalud para alimentar desplegable y seleccionar uno
   getProcedimientoscentrosalud(): Observable<Procedimientoscentrosalud[]> {
     return this.http.get<Procedimientoscentrosalud[]>(
-      // "http://api.factureprocessmed.com/api/procedimientos_centro_saluds"
-      "/apifactprocessmed/procedimientocentrosaludD"
+         "/apifactprocessmed/procedimientocentrosaludD",
     );
   }
   // Todos los especialistas de un centro de salud concreto
   getProcedimientocentrosaludId(
+    // tslint:disable-next-line: trailing-comma
     id: number
   ): Observable<Procedimientoscentrosalud[]> {
     return this.http.get<Procedimientoscentrosalud[]>(
-      // "http://api.factureprocessmed.com/api/procedimientos_centro_saluds/" + id
-      "/apifactprocessmed/procedimientocentrosalud/" + id
+          "/apifactprocessmed/procedimientocentrosalud/" + id,
     );
   }
 }

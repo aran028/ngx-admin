@@ -14,18 +14,13 @@ export class EspecialistaconsentimientoService {
   // Todos los registros de especialistas para cargar el desplegable
   getEspecialitas(): Observable<Especialista[]> {
     return this.http.get<Especialista[]>(
-      // Laravel
-      // "http://api.factureprocessmed.com/api/especialistas"
-      "/apifactprocessmed/especialistas"
+            "/apifactprocessmed/especialistas",
     );
   }
   // Seleccionado el especialista en el desplegable devuelve todos sus consentimientos
   getEspecialistaConsentimiento(id: number): Observable<Consentimiento[]> {
     return this.http.get<Consentimiento[]>(
-      // "http://api.factureprocessmed.com/api/especialistas/" +
-      // id +
-      // "/consentimientos"
-      "/apifactprocessmed/especialistaconsentimientos/" + id
+            "/apifactprocessmed/especialistaconsentimientos/" + id,
     );
   }
 }

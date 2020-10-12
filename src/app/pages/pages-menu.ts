@@ -1,22 +1,22 @@
 import { NbMenuItem } from "@nebular/theme";
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  {
-    title: "E-commerce",
-    icon: "shopping-cart-outline",
-    link: "/pages/dashboard",
-    //home: true,
-  },
-  //{
+  // {
+    // title: "E-commerce",
+    // icon: "shopping-cart-outline",
+    // link: "/pages/dashboard",
+    // home: true,
+  // },
+  // {
   //  title: "IoT Dashboard",
   //  icon: "home-outline",
   // link: "/pages/iot-dashboard",
-  //},
+  // },
   // {
   // title: "FEATURES",
-  //group: true,
-  //},
-  //{
+  // group: true,
+  // },
+  // {
   //  title: "Layout",
   //   icon: "layout-outline",
   //   children: [
@@ -43,27 +43,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //  },
   // ],
   //  },
-  //{
+  // {
   // title: "Forms",
-  //icon: "edit-2-outline",
-  //children: [
+  // icon: "edit-2-outline",
+  // children: [
   // {
   //   title: "Form Inputs",
   // link: "/pages/forms/inputs",
-  //},
-  //{
+  // },
+  // {
   // title: "Form Layouts",
-  //link: "/pages/forms/layouts",
-  //},
-  //{
-  //title: "Buttons",
-  //link: "/pages/forms/buttons",
-  //},
-  //{
-  //title: "Datepicker",
-  //link: "/pages/forms/datepicker",
-  //},
-  //],
+  // link: "/pages/forms/layouts",
+  // },
+  // {
+  // title: "Buttons",
+  // link: "/pages/forms/buttons",
+  // },
+  // {
+  // title: "Datepicker",
+  // link: "/pages/forms/datepicker",
+  // },
+  // ],
   // },
   //  {
   //     title: "UI Features",
@@ -88,9 +88,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
   // ],
   // },
-  //{
-  //title: "Modal & Overlays",
-  //icon: "browser-outline",
+  // {
+  // title: "Modal & Overlays",
+  // icon: "browser-outline",
   // children: [
   //   {
   //    title: "Dialog",
@@ -113,8 +113,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //  link: "/pages/modal-overlays/tooltip",
   // },
   // ],
-  //},
-  //{
+  // },
+  // {
   //  title: "Extra Components",
   //   icon: "message-circle-outline",
   //   children: [
@@ -170,21 +170,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: "Charts",
     icon: "pie-chart-outline",
     children: [
-      {
-        title: "Echarts",
-        link: "/pages/charts/echarts",
-      },
-      {
-        title: "Charts.js",
-        link: "/pages/charts/chartjs",
-      },
-      {
+  //    {
+   //     title: "Echarts",
+     //   link: "/pages/charts/echarts",
+    //  },
+     // {
+      //  title: "Charts.js",
+      //  link: "/pages/charts/chartjs",
+      // },
+     {
         title: "Consentimientos",
         link: "/pages/dashboard",
-        home: true,
-      },
-    ],
-  },
+         home: true,
+       },
+   ],
+ },
   {
     title: "Tables & Data",
     icon: "grid-outline",
@@ -328,26 +328,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
   // ],
   // },
-  {
-    title: "Auth",
-    icon: "lock-outline",
-    children: [
-      {
-        title: "Login",
-        link: "/auth/login",
-      },
-      {
-        title: "Register",
-        link: "/auth/register",
-      },
-      {
-        title: "Request Password",
-        link: "/auth/request-password",
-      },
-      {
-        title: "Reset Password",
-        link: "/auth/reset-password",
-      },
-    ],
-  },
+  // {
+    // title: "Auth",
+    // icon: "lock-outline",
+    // children: [
+      // {
+       // title: "Login",
+       // link: "/auth/login",
+     //  },
+     //  {
+     //    title: "Register",
+     //    link: "/auth/register",
+     //  },
+     //  {
+     //    title: "Request Password",
+      //   link: "/auth/request-password",
+     //  },
+    //   {
+      //   title: "Reset Password",
+     //    link: "/auth/reset-password",
+      // },
+     //],
+  // },
 ];

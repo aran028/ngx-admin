@@ -13,7 +13,6 @@ export class LineaComponent {
   data: consentimientovwtransacciones[];
   datai: consentimientovwtransacciones[];
   datasemana: consentimientovwtransacciones[];
-  datayear: consentimientovwtransacciones[];
   datames: consentimientovwtransacciones[];
   periodo: string;
   value: number;
@@ -46,6 +45,7 @@ export class LineaComponent {
     this.recargaGraficoAnos();
   }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     // Al iniciar se ejectua la consulta http://localhost:3000/consentimientosG1
     // Es decir cuenta por año los registros que tienen el estado=1
@@ -67,7 +67,7 @@ export class LineaComponent {
           this.barChartData[i].data[j] = numero.contador; // Leyenda de encima
           j = j + 1;
         } // for
-        this.barChartData[i].label = "Estado: 1";
+        this.barChartData[i].label = "Estado 1";
         this.periodo = "year";
       });
   }
@@ -76,7 +76,8 @@ export class LineaComponent {
   setAnio(value: number) {
     // Actualizas el valor del año
     this.value = value;
-    // inicializo
+    console.log("Año vale"+ this.value);
+   // inicializo
     // Preguntamos que valor tiene periodo
     if (this.periodo === "week") {
       this.getGraficoWeek(this.periodo);
@@ -109,37 +110,35 @@ export class LineaComponent {
   }
   // Seleccionando por year
   getGraficoYear(seleccionadoperiodo: string) {
-    this.service
+       this.service
       .getConsentimientosG1()
       .subscribe((res: consentimientovwtransacciones[]) => {
-        this.datayear = res;
         const i = 0;
         const j = 0;
         let sumaContador = 0;
-        for (const numero of res) {
-          // preguntas por el año
-          if (numero.Anio === this.value) {
+         for (let numero of res) {
+        // preguntas por el año
+        if (numero.Anio == this.value) {
             sumaContador = sumaContador + numero.contador;
           }
         } // for
         this.barChartLabels.length = 0;
         this.barChartLabels.push(this.value.toString());
         this.barChartData[i].data[j] = sumaContador;
-        this.barChartData[i].label = "Estado:" + 1;
+        this.barChartData[i].label = "Estado 1";
       });
   }
   getGraficoWeek(seleccionadoperiodo: string) {
-    this.service
+     this.service
       .getConsentimientosTransaccionesGAW()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.datasemana = res;
-        var i = 0;
-        var j = 0;
-        this.barChartLabels.length = 0;
+        const i = 0;
+         this.barChartLabels.length = 0;
         // inicializar barChartData
-        for (var j = 0; j <= 6; j++) {
+        for (let j = 0; j <= 6; j++) {
           this.barChartData[0].data[j] = 0;
-        }
+            }
         this.barChartLabels[0] = "Domingo";
         this.barChartLabels[1] = "Lunes";
         this.barChartLabels[2] = "Martes";
@@ -149,12 +148,11 @@ export class LineaComponent {
         this.barChartLabels[6] = "Sabado";
 
         for (const numero of res) {
-          if (numero.Anio === this.value) {
-            this.barChartData[i].data[numero.Dia - 1] = numero.contador;
-          }
+          if (numero.Anio == this.value) {
+              this.barChartData[i].data[numero.Dia - 1] = numero.contador;         }
         } // for
         // Leyenda de encima
-        this.barChartData[i].label = "Estado=1";
+        this.barChartData[i].label = "Estado 1";
         this.randomize();
       });
   }
@@ -163,10 +161,10 @@ export class LineaComponent {
       .getConsentimientosTransaccionesGAM()
       .subscribe((res: consentimientovwtransacciones[]) => {
         this.datames = res;
-        var i = 0;
+        const i = 0;
         this.barChartLabels.length = 0;
         // inicializar barChartData
-        for (var j = 0; j <= 11; j++) {
+        for (let j = 0; j <= 11; j++) {
           this.barChartData[0].data[j] = 0;
         }
         this.barChartLabels[0] = "Enero";
@@ -183,11 +181,11 @@ export class LineaComponent {
         this.barChartLabels[11] = "Diciembre";
 
         for (let numero of res) {
-          if (numero.Anio === this.value) {
+          if (numero.Anio == this.value) {
             this.barChartData[i].data[numero.Mes - 1] = numero.contador;
           }
         }
-        this.barChartData[i].label = "Estado: 1";
+        this.barChartData[i].label = "Estado 1";
         this.randomize();
       });
   }

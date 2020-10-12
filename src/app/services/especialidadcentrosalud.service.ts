@@ -12,8 +12,7 @@ export class EspecialidadcentrosaludService {
   // Todos los registros de la vista
   getEspecialidadCentroSalud(): Observable<Especialidadcentrosalud[]> {
     return this.http.get<Especialidadcentrosalud[]>(
-      // "http://api.factureprocessmed.com/api/especialidad_centro_saluds"
-      "/apifactprocessmed/especialidadcentrosaluds"
+         "/apifactprocessmed/especialidadcentrosaluds",
     );
   }
 }

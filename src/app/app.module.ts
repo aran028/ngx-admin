@@ -9,7 +9,6 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { CoreModule } from "./@core/core.module";
 import { ThemeModule } from "./@theme/theme.module";
-//Graficos
 import { ChartsModule } from "ng2-charts";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";

@@ -11,8 +11,7 @@ export class ProcedimientosService {
   // Todos los registros de la vista
   getProcedimientos(): Observable<Procedimientos[]> {
     return this.http.get<Procedimientos[]>(
-      // "http://api.factureprocessmed.com/api/procedimientos"
-      "/apifactprocessmed/procedimientos"
+          "/apifactprocessmed/procedimientos",
     );
   }
 }

@@ -1,6 +1,6 @@
+// tslint:disable-next-line: class-name
 export interface consentimientovwreporte {
-  //vista creada en SQL
-  Anio: number;
+   Anio: number;
   Mes: number;
   Dia: number;
   FirmaCasa: string;
@@ -8,5 +8,5 @@ export interface consentimientovwreporte {
   Especialidad: string;
   Especialista: string;
   procedimiento: string;
-  Contador: number;
+  contador: number;
 }

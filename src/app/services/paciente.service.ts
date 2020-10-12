@@ -13,8 +13,7 @@ export class PacienteService {
   // Todos los registros de la vista
   getPaciente(): Observable<Paciente[]> {
     return this.http.get<Paciente[]>(
-      // "http://api.factureprocessmed.com/api/pacientes"
-      "/apifactprocessmed/pacientes"
+           "/apifactprocessmed/pacientes",
     );
   }
 }

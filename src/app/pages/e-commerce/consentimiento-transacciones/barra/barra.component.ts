@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 import { ChartDataSets, ChartOptions, ChartType } from "chart.js";
 import { Label } from "ng2-charts";
-//importamos el modelo ConsentimientovwTransacciones para la grafica
+// importamos el modelo ConsentimientovwTransacciones para la grafica
 import { consentimientovwtransacciones } from "../../../../models/consentimientovwtransacciones";
-//importo el servicio para mostrar datos en gráfica
+// importo el servicio para mostrar datos en gráfica
 import { ConsentimientovwtransaccionesService } from "../../../../services/consentimientovwtransacciones.service";
 
 @Component({
@@ -52,10 +52,11 @@ export class BarraComponent {
     this.recargaGraficoAnos();
   }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
-    //Al iniciar se ejectua la consulta http://localhost:3000/consentimientosG1
-    //Es decir cuenta por año los registros que tienen el estado=1
-    //se carga el desplegable con estos datos
+    // Al iniciar se ejectua la consulta http://localhost:3000/consentimientosG1
+    // Es decir cuenta por año los registros que tienen el estado=1
+    // se carga el desplegable con estos datos
     this.service
       .getConsentimientosG1()
       .subscribe((res: consentimientovwtransacciones[]) => {
